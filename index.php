@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" type="text/css" media="screen and (max-width: 320px)" href="css/mobile_style.css">
-<script src="js/jquery-1.11.2.min.js"></script>
-<?php
-   require("navbar.php");
+<?php 
+   include("functions.php");
+   include("header.php");
 ?>
-</head>
 
-<body>
-<div id="content"></div>
-<script>
-$(document).ready(function() {
+    <!-- Put your page content here! -->
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+   
+   <?php if(!isset($_SESSION['username'])) { ?>
+        <h2 class="text-center">Welcome to BD Bank!</h2>
+        <p class="text-center">It appears you aren't logged in.<br>Please log in, or register for a new account</p><br>
+        <p class="text-center"><a class="btn btn-primary btn-lg" href="login.php" role="button">Login</a>
+           <a class="btn btn-primary btn-lg" href="register.php" role="button">Register</a>
+        </p>
+   
+   <?php } else { ?>
+        <h2 class="text-center">Welcome, <?php echo $_SESSION['username'];?>.</h2>
+        <p class="text-center"> Click below to view your account summary</p>
+        <a href="summary.php"><button type="button" class="btn btn-primary">Summary</button></a>
+   <?php } ?>
+        </div>
+    </div>
+
 <?php
-   if( !isset($_SESSION['username']) ) {
+   include("footer.php");
 ?>
-      $("#content").load("welcome.php");
-<?php
-   } else {
-?>
-      $("#content").load("gate.php");
-<?php } ?>
-});
-</script>
-</body>
-</html>
+
+

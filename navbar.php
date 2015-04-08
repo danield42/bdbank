@@ -1,47 +1,47 @@
-<?php
-   session_start();
-?>
-<link rel="stylesheet" type="text/css" href="css/navbar.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" type="text/css" media="screen and (max-width: 320px)" href="css/mobile_navbar.css">
+    <!-- Navigation -->
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+             <?php if (isset($_SESSION['username'])) {
+                     if (isEmployee($_SESSION['username']) == 1) { ?>
+                <a class="navbar-brand" href="employee.php"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></    span>Employee</a>
+             <?php }} ?> 
 
-<script>
-$(document).ready(function() {
-   $("#home").click(function() {
-      window.location.href = "home.php";
-   });
-<?php if( isset($_SESSION["username"]) ) { ?>
-   $("#logout_btn").click(function() {
-      window.location.href = "logout.php";
-   });
-<?php } ?>
-});
+             <?php if (isset($_SESSION['username'])) { ?>
+                <p class="navbar-text">Signed in as <?php echo $_SESSION['username']; ?></p>
+             <?php } ?>
 
-</script>
+            </div>
 
-<div class="bdbanner">
-<a href="index.php"><img src="img/logo0.png" id="logo" alt="logo"></a>
-<div class="nav_container">
-<ul id="navbar">
-   <li><a href="home.php"><button id="home">Home</button></a></li>
-<!--
-   <li><button id="nothome">NotHome</button></li>
--->
-<?php if( isset($_SESSION["username"]) ) { ?>
-   <li><a href="logout.php"><button id="logout_btn">Logout</button></a></li>
-<?php } ?>
-</ul>
-</div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="summary.php">Summary</a>
+                    </li>
+                    <li>
+                        <a href="heyyy.php">Don't click me</a>
+                    </li>
+                    <li>
+            <?php if (isset($_SESSION['username'])) { ?>
+                        <a href="logout.php">Logout <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+            <?php } else { ?>
+                        <a href="login.php"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a>
+                    </li>
+                    <li>
 
-<?php if( !isset($_SESSION['username']) ) { ?>
-<div id="login_container">
-   <form id="login_form" action="login.php" method="POST">
-   <input type="text" name="username" placeholder="username" required>
-   <input type="password" name="pword" placeholder="password" required>
-   <input type="submit" value="Login">
-   </form>
-</div>
-<?php } ?>
-</div><!--end nav_container-->
-
-</div><!--end bdbanner-->
+                        <a href="register.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register</a>
+            <?php } ?>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->

@@ -1,0 +1,109 @@
+/*!
+ * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+@media (min-width:768px) {
+
+body {
+/*
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background:transparent;
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+
+.full {
+    background: url('../img/background_nightsky2048.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.jumbotron {
+   width:100%;
+  color: #fffafa;
+  margin-top:20%;
+  background-color: rgba(0,0,0,0.7);
+  border:1px solid white;
+  -webkit-border-radius:20px;
+  -mz-border-radius:20px;
+  -o-border-radius:20px;
+  border-radius:20px;
+  text-align:center;
+}
+.navbar {
+   z-index:1000;
+   border:none;
+   margin-bottom:0;
+}
+.navbar.navbar-inverse {
+   background: transparent;
+   border:none;
+} 
+.navbar.navbar-default {
+   background:#000;
+}
+video#bgvid {
+   position: fixed; right: 0; bottom: 0;
+   min-width: 100%; min-height: 100%;
+   width: auto; height: auto; z-index: -100;
+   background: url("img/heyyy.gif") no-repeat;
+   background-size: cover;
+}
+}
+.jumbotron.tall {
+   height:100%;
+   margin:0;
+   background:#777;
+   -webkit-border-radius:20px;
+   -mz-border-radius:20px;
+   -o-border-radius:20px;
+   border-radius:20px;
+   border:2px solid black;
+   box-shadow:5px 5px 10px black;
+
+}
+.jumbotron.tall h1 small {
+   color: #bbb;
+}
+.jumbotron.tall table, .jumbotron.tall tr {
+   border:1px solid white;
+   width:100%;
+   padding:10px;
+   color:black;
+}
+.jumbotron.tall td, .jumbotron.tall th { 
+   padding-bottom:10px;
+   padding-top:10px;
+   text-align:center;
+}
+.jumbotron form {
+   width:100%;
+   padding:10px;
+}
+.jumbotron form input[name^='reg'] {
+   width:100%;
+   margin:auto;
+}
+input[type="number"] {
+   color: black;
+}
+.jumbotron form label {
+   padding:0; 
+}
+.form-group {
+   padding-left:20px;
+   padding-right:20px;
+}
+#table_accounts tr:not([id="table_header"]) {
+   cursor: pointer;
+}
+#acc_num {
+   color:#111;
+}
+#acc_table {
+   background:#aaa;
+}

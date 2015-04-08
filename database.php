@@ -1,11 +1,12 @@
 <?php
-   $servername = "127.0.0.1";
-   $username = "client";
-   $password = "iamclient";
-   $dbname = "bdbank";
 
+   $db_servername = "127.0.0.1";
+   $db_username = "client";
+   $db_password = "iamclient";
+   $db_dbname = "bdbank";
+   
    // Create connection
-   $conn = new mysqli($servername, $username, $password, $dbname);
+   $conn = new mysqli($db_servername, $db_username, $db_password, $db_dbname);
 
    // Check connection
    if ($conn->connect_error) {
