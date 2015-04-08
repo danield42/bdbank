@@ -26,7 +26,7 @@
          <form class="form-horizontal" action="" method="POST">
          <div class="form-group">
              <div class="input-group">
-              <input type="text" id="lookup" name="lookup" class="form-control" placeholder="Search for..." required value="<?php echo $_POST['lookup']; ?>">
+              <input type="text" id="lookup" name="lookup" class="form-control" placeholder="Search for..." value="<?php echo $_POST['lookup']; ?>">
               <span class="input-group-addon">Search</span>
              </div>
               <input type="submit" class="btn btn-primary" value="Search">

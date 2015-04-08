@@ -61,7 +61,7 @@
          $stmt->execute();
          $stmt->bind_result($db_bal);
          if( $stmt->fetch() ) {
-            echo $db_bal;
+            echo money_format('%(#10n',$db_bal);
          }
          $stmt->close();
       }
@@ -135,15 +135,16 @@
             echo "<th>Transaction Date</th>";
          echo "</tr>";
          $res = "";
+         setlocale(LC_MONETARY, 'en_US');
          while ( $stmt->fetch() ) {
             $res .= "<tr><td>";
             $res .= $tid;
             $res .= "</td><td>";
-            $res .= $deb;
+            $res .= money_format('%(#10n',$deb);
             $res .= "</td><td>";
-            $res .= $cred;
+            $res .= money_format('%(#10n',$cred);
             $res .= "</td><td>";
-            $res .= $bal;
+            $res .= money_format('%(#10n',$bal);
             $res .= "</td><td>";
             $res .= $date;
             $res .= "</td></tr>";
@@ -173,12 +174,13 @@
          echo "</tr>";
          
          $res = "";
+         setlocale(LC_MONETARY, 'en_US');
          while ( $stmt->fetch() ) {
             $res .= "<tr onclick=\"document.location='summary.php?aid=" . $aid . "';\">";
             $res .= "<td>";
             $res .= $aid;
             $res .= "</td><td>";
-            $res .= $bal;
+            $res .= money_format('%(#10n',$bal);
             $res .= "</td>";
             $res .= "</tr>";
          }
@@ -320,7 +322,7 @@
 
    function searchUser($string) {
       require("database.php");
-      $sql = "SELECT username, fname, lname ";
+      $sql = "SELECT username, l.cid, fname, lname ";
       $sql .= " FROM Login l";
       $sql .= " JOIN Clients c";
       $sql .= " ON l.cid = c.cid";
@@ -332,9 +334,10 @@
       if( $stmt = $conn->prepare($sql) ) {
          $stmt->bind_param("sss", $string, $string, $string);
          $stmt->execute();
-         $stmt->bind_result($username, $fname, $lname);
+         $stmt->bind_result($username, $cid, $fname, $lname);
          echo "<tr class='danger'>";
          echo "<th>Username</th>";
+         echo "<th>Client ID</th>";
          echo "<th>First Name</th>";
          echo "<th>Last Name</th>";
          echo "</tr>";
@@ -342,6 +345,8 @@
          while ( $stmt->fetch() ) {
             $res .= "<tr class='active'><td>";
             $res .= $username;
+            $res .= "</td><td>";
+            $res .= $cid;
             $res .= "</td><td>";
             $res .= $fname;
             $res .= "</td><td>";
